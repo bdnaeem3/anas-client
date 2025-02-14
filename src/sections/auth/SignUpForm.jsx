@@ -60,9 +60,9 @@ function SignUpForm({
     return (
         <div className="md:w-1/2 md:flex items-center justify-center px-6 py-24 relative">       {/* Left side - Sign-up form */}
             {/* Logo */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 md:left-4 md:translate-x-0">
+            {/* <div className="absolute top-4 left-1/2 -translate-x-1/2 md:left-4 md:translate-x-0">
                 <img src={TalkPilot} width={200} height={200} />
-            </div>
+            </div> */}
 
             <div className="w-full max-w-sm space-y-6 m-auto">
                 {/* Header */}

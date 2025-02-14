@@ -20,7 +20,7 @@ export function DealView() {
   }, [showActivityScheduler])
 
   return (
-    <div className="flex gap-4 p-4">
+    <div className="flex h-[calc(100vh-4rem)] gap-4 p-4">
       <div className="flex flex-1 flex-col gap-4">
         <Card className="bg-card p-6">
           <div className="flex items-center justify-between">
