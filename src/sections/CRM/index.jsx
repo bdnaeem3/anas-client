@@ -12,7 +12,7 @@ export default function Page() {
       <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
 
       <div className="flex flex-1 flex-col">
-        <main className="flex-1 overflow-auto bg-secondary/30">
+        <main className="flex-1 bg-secondary/30">
           <DealView />
         </main>
       </div>

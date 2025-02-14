@@ -20,7 +20,7 @@ export function DealView() {
   }, [showActivityScheduler])
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] gap-4 p-4">
+    <div className="flex gap-4 p-4">
       <div className="flex flex-1 flex-col gap-4">
         <Card className="bg-card p-6">
           <div className="flex items-center justify-between">
@@ -92,7 +92,7 @@ export function DealView() {
                 Emails
               </TabsTrigger>
             </TabsList> */}
-            <TabsContent value="activity" className="h-full overflow-auto p-4">
+            <TabsContent value="activity" className="h-full p-4">
               <div className="mb-4 flex gap-2">
                 <Button variant="outline" size="sm" className=" text-sm gap-2" onClick={() => setShowActivityScheduler(!showActivityScheduler)}>
                   <Calendar className="h-4 w-4 text-blue-500" />
