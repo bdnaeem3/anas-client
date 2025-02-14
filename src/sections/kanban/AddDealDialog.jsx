@@ -32,7 +32,7 @@ export function AddDealDialog({ isOpen, onClose, onSave }) {
     <>
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-black transition-all duration-500 ease-in-out z-[50] ${
           isAnimating ? (isOpen ? "bg-opacity-50" : "bg-opacity-0") : "bg-opacity-0"
         } ${isAnimating ? "visible" : "invisible"}`}
         onClick={onClose}
