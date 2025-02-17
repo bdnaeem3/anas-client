@@ -8,6 +8,8 @@ const INITIAL_STATE = {
     error: null,
     message: null,
     isLoading: false,
+    sidebarOpen: false,
+    sidebarWidth: null,
 };
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -67,6 +69,13 @@ export default function auth(state = INITIAL_STATE, action) {
                 isAuthenticated: false
             }
         }
+        case 'SIDEBAR_TOGGLE': {
+            return {
+                ...state,
+                sidebarOpen: !state.sidebarOpen,
+            }
+        }
+
         default: {
             return state
         }

@@ -14,12 +14,12 @@ import {
     SidebarTrigger,
 } from "@/components/ui/sidebar"
 
-const CustomBreadcrumb = ({ children, heading, links }) => {
+const CustomBreadcrumb = ({ heading, links }) => {
     return (
         <div>
             <SidebarInset>
                 <header>
-                    <div className="px-4 py-4 md:py-1 flex flex-col ">
+                    <div className="px-4 flex flex-col ">
                         {/* Main content */}
                         <div className="flex justify-between md:items-center gap-4 md:flex-row flex-col">
                             <div className="space-y-2">
@@ -27,7 +27,7 @@ const CustomBreadcrumb = ({ children, heading, links }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex px-4 h-12 md:h-14 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b border-border">
+                    <div className="flex px-4 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b border-border">
                         <SidebarTrigger className="-ml-1 bg-gray-50" />
                         {/* <Separator orientation="vertical" className="mr-2 h-4" /> */}
                         <Breadcrumb>
@@ -44,9 +44,6 @@ const CustomBreadcrumb = ({ children, heading, links }) => {
                         </Breadcrumb>
                     </div>
                 </header>
-                <div className="flex flex-1 flex-col gap-4 p-4">
-                    {children}
-                </div>
             </SidebarInset>
         </div>
     )

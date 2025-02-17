@@ -16,6 +16,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSidebarOpen } from "@/actions/auth";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -48,6 +50,7 @@ const SidebarProvider = React.forwardRef((
   ref
 ) => {
   const isMobile = useIsMobile()
+  const {sidebarOpen} = useSelector(state=>state.Auth)
   const [openMobile, setOpenMobile] = React.useState(false)
 
   // This is the internal state of the sidebar.
@@ -102,6 +105,10 @@ const SidebarProvider = React.forwardRef((
     setOpenMobile,
     toggleSidebar,
   }), [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar])
+
+  React.useEffect(()=> {
+    setOpen(sidebarOpen)
+  }, [sidebarOpen])
 
   return (
     (<SidebarContext.Provider value={contextValue}>
@@ -217,7 +224,8 @@ const Sidebar = React.forwardRef((
 Sidebar.displayName = "Sidebar"
 
 const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) => {
-  const { toggleSidebar } = useSidebar()
+  // const { toggleSidebar } = useSidebar()
+  const dispatch = useDispatch()
 
   return (
     (<Button
@@ -227,8 +235,9 @@ const SidebarTrigger = React.forwardRef(({ className, onClick, ...props }, ref) 
       size="icon"
       className={cn("h-7 w-7", className)}
       onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
+        // onClick?.(event)
+        // toggleSidebar()
+        dispatch(toggleSidebarOpen())
       }}
       {...props}>
       <PanelLeft />
@@ -268,7 +277,7 @@ const SidebarInset = React.forwardRef(({ className, ...props }, ref) => {
     (<main
       ref={ref}
       className={cn(
-        "relative flex min-h-svh flex-1 flex-col bg-background",
+        "relative flex flex-1 flex-col bg-background",
         "peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",
         className
       )}

@@ -6,11 +6,23 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
+import CustomBreadcrumb from "@/theme/override/Breadcrumb"
+import { useSelector } from "react-redux"
 
 export default function Navbar() {
+  const {sidebarOpen} = useSelector(state=>state.Auth)
+
   return (
-    <nav className="w-full shadow-sm">
+    <nav className="w-full shadow-sm transition-all duration-500 ease-in-out" style={{ 
+      paddingLeft: sidebarOpen ? 255 : 47
+     }}>
       <div className="flex h-16 items-center justify-between gap-4">
+        <div className="ml-5">
+          <CustomBreadcrumb
+            heading="Sales Pipeline"
+          />
+        </div>
+
         {/* Search container with max width to prevent overflow */}
         <div className="flex-1 flex justify-center max-w-[800px] mx-auto px-4">
           <div className="relative w-full max-w-[360px]">

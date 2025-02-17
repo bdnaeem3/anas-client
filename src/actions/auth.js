@@ -70,3 +70,9 @@ export const getUserSuccess = ({ userInfo }) => {
         }
     }
 }
+
+export const toggleSidebarOpen = () => {
+    return {
+        type: 'SIDEBAR_TOGGLE'
+    }
+}

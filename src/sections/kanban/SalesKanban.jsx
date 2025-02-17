@@ -8,7 +8,6 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { AddDealDialog } from "./AddDealDialog"
-import CustomBreadcrumb from "@/theme/override/Breadcrumb"
 
 const initialTasks = [
   {
@@ -155,9 +154,7 @@ export function SalesKanban({ isSidebarOpen, setIsSidebarOpen }) {
 
   return (
     <>
-      <CustomBreadcrumb
-        heading="Sales Pipeline"
-      >
+      <div className="flex flex-1 flex-col gap-4 p-4">
         <div className="h-full bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 transition-all duration-500">
           <AddDealDialog isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} onSave={handleAddDeal} />
 
@@ -235,7 +232,7 @@ export function SalesKanban({ isSidebarOpen, setIsSidebarOpen }) {
             </div>
           </DragDropContext>
         </div>
-      </CustomBreadcrumb>
+      </div>
     </>
   )
 }
