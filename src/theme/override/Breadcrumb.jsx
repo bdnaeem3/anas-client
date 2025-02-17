@@ -28,7 +28,7 @@ const CustomBreadcrumb = ({ children, heading, links }) => {
                         </div>
                     </div>
                     <div className="flex px-4 h-12 md:h-14 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b border-border">
-                        {/* <SidebarTrigger className="-ml-1 bg-gray-50" /> */}
+                        <SidebarTrigger className="-ml-1 bg-gray-50" />
                         {/* <Separator orientation="vertical" className="mr-2 h-4" /> */}
                         <Breadcrumb>
                         {/* //! Create an array for breadcrumb */}

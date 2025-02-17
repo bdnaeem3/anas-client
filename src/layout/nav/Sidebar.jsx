@@ -165,7 +165,7 @@ export default function SideBar({
                 </Sidebar>
 
                 {/* Main content */}
-                <div className="flex flex-1 flex-col gap-4 py-4 pl-4">{children}</div>
+                <div className="flex flex-1 flex-col gap-4 p-4">{children}</div>
             </SidebarProvider>
         </div>
     )

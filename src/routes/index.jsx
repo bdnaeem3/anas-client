@@ -1,5 +1,8 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import { CRMPage, KanbanPage, LayoutPage, LoginPage, SignUpPage, ScriptBuilderPage } from "./elements";
+import { 
+    CRMPage, KanbanPage, LayoutPage, LoginPage, SignUpPage, 
+    ScriptBuilderPage, DashboardPage 
+} from "./elements";
 
 export default function Router() {
     return useRoutes([
@@ -38,6 +41,12 @@ export default function Router() {
                     path: 'builder',
                     element: (
                         <ScriptBuilderPage />
+                    ),
+                },
+                {
+                    path: 'dashboard',
+                    element: (
+                        <DashboardPage />
                     ),
                 },
             ]
