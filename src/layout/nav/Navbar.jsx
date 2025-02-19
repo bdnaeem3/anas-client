@@ -17,11 +17,7 @@ export default function Navbar() {
       paddingLeft: sidebarOpen ? 255 : 47
      }}>
       <div className="flex h-16 items-center justify-between gap-4">
-        <div className="ml-5">
-          <CustomBreadcrumb
-            heading="Sales Pipeline"
-          />
-        </div>
+        <div id="breadcrumb-portal" className="ml-5"></div>
 
         {/* Search container with max width to prevent overflow */}
         <div className="flex-1 flex justify-center max-w-[800px] mx-auto px-4">

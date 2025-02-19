@@ -1,5 +1,5 @@
-import React from 'react'
-import { Separator } from "@/components/ui/separator"
+import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -15,7 +15,15 @@ import {
 } from "@/components/ui/sidebar"
 
 const CustomBreadcrumb = ({ heading, links }) => {
-    return (
+    const [portalAvailable, setPortalAvailable] = useState(null);
+
+    useEffect(() => {
+        return () => {
+            setPortalAvailable(document.getElementById("breadcrumb-portal"));
+        }
+    }, []);
+
+    return portalAvailable ? createPortal(
         <div>
             <SidebarInset>
                 <header>
@@ -23,7 +31,7 @@ const CustomBreadcrumb = ({ heading, links }) => {
                         {/* Main content */}
                         <div className="flex justify-between md:items-center gap-4 md:flex-row flex-col">
                             <div className="space-y-2">
-                                <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{heading}</h1>
+                                <h1 className="text-2xl font-bold tracking-tight">{heading}</h1>
                             </div>
                         </div>
                     </div>
@@ -45,8 +53,9 @@ const CustomBreadcrumb = ({ heading, links }) => {
                     </div>
                 </header>
             </SidebarInset>
-        </div>
-    )
+        </div>,
+        portalAvailable
+    ) : null
 }
 
 export default CustomBreadcrumb
