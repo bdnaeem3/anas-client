@@ -10,6 +10,7 @@ const INITIAL_STATE = {
     isLoading: false,
     sidebarOpen: false,
     sidebarWidth: null,
+    tasks: [],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -73,6 +74,12 @@ export default function auth(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 sidebarOpen: !state.sidebarOpen,
+            }
+        }
+        case 'ADD_TASK': {
+            return {
+                ...state,
+                tasks: [...state.tasks, action.payload.task],
             }
         }
 

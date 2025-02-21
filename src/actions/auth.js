@@ -76,3 +76,12 @@ export const toggleSidebarOpen = () => {
         type: 'SIDEBAR_TOGGLE'
     }
 }
+
+export const addTask = (task) => {
+    return {
+        type: 'ADD_TASK',
+        payload: {
+            task
+        }
+    }
+}
