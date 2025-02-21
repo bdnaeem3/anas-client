@@ -5,12 +5,6 @@ import CreateTaskModal from "@/modals/CreateTaskModal";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const tasks = [
-    { title: "Color Palette Selection", subtitle: "Over9k: Gamers App", isActive: true },
-    { title: "Creating Landing page for ...", subtitle: "Guitar Tuner", isActive: false },
-    { title: "Competitive & functional a...", subtitle: "Doctor+", isActive: false },
-];
-
 export default () => {
     const [openModal, setOpenModal] = useState(false)
 
@@ -18,24 +12,23 @@ export default () => {
         setOpenModal(prev => !prev)
     }
 
-    const {tasks} = useSelector(state=>state.Auth)
+    const { tasks } = useSelector(state => state.Auth)
 
     return (
         <Card className="w-full p-4 rounded-2xl shadow-lg">
             <CreateTaskModal isOpen={openModal} onClose={toggleModal} />
-            <CardContent className="p-0">
+            <CardContent className="p-0 max-h-[270px] overflow-auto">
                 <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center">
                         <h2 className="text-lg font-semibold">Today's tasks</h2>
                         <span className="flex items-center justify-center text-gray-600 text-sm border rounded-[50%] w-6 h-6 ml-2 bg-gray-300">{tasks.length}</span>
                     </div>
-                    <button
-                        type="button"
-                        className="text-blue-600 text-sm"
+                    <Button
+                        variant="outline"
                         onClick={toggleModal}
                     >
-                        Manage &gt;
-                    </button>
+                        Add Task
+                    </Button>
                 </div>
 
                 {tasks.map((task, index) => (

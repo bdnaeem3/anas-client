@@ -85,3 +85,13 @@ export const addTask = (task) => {
         }
     }
 }
+
+
+export const addMeeting = (meeting) => {
+    return {
+        type: 'ADD_MEETING',
+        payload: {
+            meeting
+        }
+    }
+}

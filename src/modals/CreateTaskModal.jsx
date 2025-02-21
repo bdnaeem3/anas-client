@@ -23,7 +23,7 @@ export default function CreateTaskModal({ isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-6 rounded-2xl">
+      <DialogContent aria-describedby={taskDescription} className="p-6 rounded-2xl">
         <DialogHeader>
           <DialogTitle>Create Task</DialogTitle>
         </DialogHeader>

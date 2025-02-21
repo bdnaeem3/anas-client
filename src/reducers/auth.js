@@ -10,7 +10,31 @@ const INITIAL_STATE = {
     isLoading: false,
     sidebarOpen: false,
     sidebarWidth: null,
-    tasks: [],
+    tasks: [
+        { title: "Color Palette Selection", subtitle: "Over9k: Gamers App", isActive: true },
+        { title: "Creating Landing page for ...", subtitle: "Guitar Tuner", isActive: false },
+        { title: "Competitive & functional a...", subtitle: "Doctor+", isActive: false },
+    ],
+    meetings: [
+        {
+            time: "20:00",
+            title: "Present the project and gather feedback",
+            meetingLink: "",
+            bgColor: "bg-red-500"
+        },
+        {
+            time: "01:00",
+            title: "Meeting with UX team",
+            meetingLink: "adsfd",
+            bgColor: "bg-gray-400"
+        },
+        {
+            time: "03:00",
+            title: "Onboarding of the project",
+            meetingLink: "",
+            bgColor: "bg-gray-400"
+        }
+    ],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -80,6 +104,12 @@ export default function auth(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 tasks: [...state.tasks, action.payload.task],
+            }
+        }
+        case 'ADD_MEETING': {
+            return {
+                ...state,
+                meetings: [...state.meetings, action.payload.meeting],
             }
         }
 
