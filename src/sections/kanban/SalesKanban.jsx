@@ -163,7 +163,7 @@ export function SalesKanban({ isSidebarOpen, setIsSidebarOpen }) {
           <AddDealDialog isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} onSave={handleAddDeal} />
 
           <DragDropContext onDragEnd={onDragEnd}>
-            <div className="flex space-x-4 md:space-x-6 overflow-x-auto pb-6 -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex space-x-4 md:space-x-6 pb-6 -mx-4 px-4 md:mx-0 md:px-0">
               {stages.map((stage) => (
                 <Droppable key={stage} droppableId={stage}>
                   {(provided, snapshot) => (

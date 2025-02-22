@@ -8,24 +8,31 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import CustomBreadcrumb from "@/theme/override/Breadcrumb"
 import { useSelector } from "react-redux"
+import useMediaQueries from '../../hooks/useMediaQueries'
 
 export default function Navbar() {
-  const {sidebarOpen} = useSelector(state=>state.Auth)
+  const { isMd } = useMediaQueries();
+  const { sidebarOpen } = useSelector(state => state.Auth)
+
 
   return (
-    <nav className="w-full shadow-sm transition-all duration-500 ease-in-out" style={{ 
-      paddingLeft: sidebarOpen ? 255 : 47
-     }}>
+    <nav className="w-full shadow-sm transition-all duration-500 ease-in-out" style={{
+      paddingLeft: !isMd ? 0 : sidebarOpen ? 255 : 47
+    }}>
       <div className="flex h-16 items-center justify-between gap-4">
         <div id="breadcrumb-portal" className="ml-5"></div>
 
         {/* Search container with max width to prevent overflow */}
-        <div className="flex-1 flex justify-center max-w-[800px] mx-auto px-4">
-          <div className="relative w-full max-w-[360px]">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-            <Input type="text" placeholder="Search" className="pl-9 h-10 w-full" />
+        
+        {
+          isMd &&
+          <div className="flex-1 flex justify-center max-w-[800px] mx-auto px-4">
+            <div className="relative w-full max-w-[360px]">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+              <Input type="text" placeholder="Search" className="pl-9 h-10 w-full" />
+            </div>
           </div>
-        </div>
+        }
 
         {/* Right side components with fixed position */}
         <div className="flex items-center gap-3 px-6 shrink-0">
